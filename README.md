@@ -1,25 +1,54 @@
-# Student Panel App
+# Student and Teacher Panel
 
-A comprehensive Flutter application for a Student Portal, providing a responsive interface for accessing academic information and managing student activities.
+This is a responsive application built with Flutter featuring both a Student Panel and a Teacher Panel. It provides a comprehensive interface for students and teachers to manage their academic responsibilities.
 
 ## Features
 
-- **Responsive Design**: Adapts seamlessly to mobile, tablet, and desktop screens.
-- **Comprehensive Navigation**: Includes sections for Dashboard, Profile, Attendance, Results, Routine, Assignments, Notices, Subjects, Semester Fees, Library, Exam Schedule, and Settings.
-- **Secure Access**: Integrated logout functionality.
+- **Responsive Dashboard**: Adapts to both mobile and desktop screens.
+- **Mobile Support**: Includes a responsive Drawer for narrow screens.
+- **Desktop Support**: Features a persistent side navigation menu.
+- **Role Selection**: Landing screen to choose between Student and Teacher panels.
+
+### Student Navigation Options
+- Dashboard
+- Profile
+- Attendance
+- Results
+- Routine
+- Assignments
+- Notices
+- Subjects
+- Semester Fees
+- Library
+- Exam Schedule
+- Settings
+
+### Teacher Navigation Options
+- Dashboard
+- Take Attendance
+- Upload Result
+- Upload Assignment
+- Class Routine
+- Student List
+- Notice Upload
+- Messages
+- Profile
 
 ## Tech Stack
 
-- **Flutter**: Cross-platform framework for building native interfaces.
-- **Dart**: Programming language used for development.
+- **Framework**: Flutter
+- **Language**: Dart
+- **Design System**: Material Design 3
 
 ## Setup and Run
 
-1. Ensure you have Flutter installed and set up.
-2. Clone the repository and navigate to the project directory.
-3. Run `flutter pub get` to fetch dependencies.
-4. Run `flutter run` to start the app on your connected device or emulator.
+1. Make sure you have Flutter installed on your machine.
+2. Clone this repository.
+3. Run `flutter pub get` to install dependencies.
+4. Run `flutter run` to start the application.
 
-## CouldAI
+---
 
-This application was generated with [CouldAI](https://could.ai), an AI app builder for cross-platform apps that turns prompts into real native iOS, Android, Web, and Desktop apps with autonomous AI agents that architect, build, test, deploy, and iterate production-ready applications.
+## About CouldAI
+
+This app was generated with [CouldAI](https://could.ai), an AI app builder for cross-platform apps that turns prompts into real native iOS, Android, Web, and Desktop apps with autonomous AI agents that architect, build, test, deploy, and iterate production-ready applications.
