@@ -1,19 +1,59 @@
 import 'package:flutter/material.dart';
 
+class ThemeNotifier extends ChangeNotifier {
+  ThemeMode _themeMode = ThemeMode.system;
+  ThemeMode get themeMode => _themeMode;
+
+  void toggleTheme(bool isDark) {
+    _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
+}
+
+final themeNotifier = ThemeNotifier();
+
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    super.initState();
+    themeNotifier.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'University Panels',
       debugShowCheckedModeBanner: false,
+      themeMode: themeNotifier.themeMode,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        brightness: Brightness.light,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.light),
+        useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+          elevation: 0,
+        ),
+        cardTheme: CardTheme(
+          elevation: 4,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        ),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       initialRoute: '/',
@@ -36,6 +76,14 @@ class RoleSelectionScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Select Portal'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: [
+          IconButton(
+            icon: Icon(themeNotifier.themeMode == ThemeMode.dark ? Icons.light_mode : Icons.dark_mode),
+            onPressed: () {
+              themeNotifier.toggleTheme(themeNotifier.themeMode != ThemeMode.dark);
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(
@@ -419,9 +467,31 @@ class _AdminPanelScreenState extends State<AdminPanelScreen> {
     Icons.bar_chart,
   ];
 
-  Widget _buildContent(String title) {
-    if (title == 'Dashboard') {
-      return _buildAdminDashboard();
+  final List<String> _extraFeatures = [
+    'QR Attendance',
+    'Face Recognition Attendance',
+    'Push Notification',
+    'Live Chat',
+    'Online Exam',
+    'PDF Result Download',
+    'Student ID Card',
+    'Teacher ID Card',
+    'Fee Payment',
+    'GPA Calculator',
+    'Semester Registration',
+    'Library Management',
+    'Bus Tracking',
+    'Hostel Management',
+    'Event Calendar',
+    'Academic Calendar',
+    'Search Students',
+    'Export Excel',
+    'Export PDF',
+    'Admin Analytics Dashboard',
+    'Multi-language Support (English & Bangla)'
+  ];
+
+
     }
     
     return Center(
